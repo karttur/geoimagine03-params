@@ -21,7 +21,7 @@ from geoimagine.ktpandas import PandasTS
 from geoimagine.params.layers import VectorLayer, RasterLayer
 
 import geoimagine.support.karttur_dt as mj_dt
-from palettable import palette
+#from palettable import palette
 
 
 def UpdateDict(mainD, defaultD, jsonFPN = False):
@@ -466,6 +466,10 @@ class TimeSteps:
 
             # Set to static
             self.SetStaticTimeStep()
+            
+        elif not hasattr(self.period, 'timestep'):
+            
+            setattr(self.period, 'timestep', 'static')
 
         elif self.period.timestep == 'static':
 
